@@ -1,0 +1,27 @@
+WINDOWS FUNCTION TASK
+??ROW_NUMBER()
+1. Assign a unique row number to each sale in the Sales table ordered by OrderDate.
+2. Display the top 5 most recent orders for each customer using ROW_NUMBER().
+3. Assign row numbers to each product within its category based on total sales amount.
+4. For each region, assign a row number to customers based on their total purchase value (highest to lowest).
+5. List the first order made by each customer (using ROW_NUMBER() inside a subquery).
+6. Generate row numbers for all transactions and display only rows 51 to 100 (for pagination).
+7. Assign row numbers to all employees based on their joining date (earliest to latest).
+
+?? RANK()
+8. Rank products in each category based on total quantity sold.
+9. Rank customers within each region according to their total purchase amount.
+10. Rank sales representatives based on their monthly sales performance.
+11. Show top 3 ranked products by profit in each category using RANK().
+12. Rank stores based on total revenue — note how ties affect the ranking sequence.
+13. For each month, rank the top-performing product by total sales amount.
+14. Rank customers based on the number of orders placed in 2024.
+
+?? DENSE_RANK()
+15. Use DENSE_RANK() to find products with the same total sales having the same rank in each category.
+16. Rank customers based on their total spending using DENSE_RANK() — observe how it differs from RANK().
+17. Find the top 3 product categories with the highest total revenue using DENSE_RANK().
+18. In each region, assign a dense rank to sales reps based on their sales target achievement.
+19. Identify the top 2 months with the highest profit per region using DENSE_RANK().
+20. Rank product subcategories by profit margin using DENSE_RANK() and filter the top 5.
+
