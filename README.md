@@ -1,7 +1,7 @@
 # SQL-WINDOWS-FUNCTION-TASK-
 I've solved 20 windows function problem 
 
-## #WINDOWS FUNCTION
+### WINDOWS FUNCTION
 ### Row Number - total 21 task
 
 #### 1. Assign a unique row number to each sale in the Sales
@@ -145,8 +145,7 @@ order by total_order desc
 ````
 ###							 Dense_rank()
 
-### 15.	Use DENSE_RANK() to find products with the same total sales 
-having the same rank in each category.
+### 15.	Use DENSE_RANK() to find products with the same total sales having the same rank in each category.
 ```SQL
 with SAME_TOTAL AS (Select p.product_name , sum(s.sales), p.category,
 dense_rank() over(order by sum(s.sales)) as dense_rank
