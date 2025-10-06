@@ -12,17 +12,17 @@ select sales,
 from sales 
 ```
 
-'''2.Display the top 5 most recent orders for each customer using
-ROW_NUMBER().'''
-
+### 2.Display the top 5 most recent orders for each customer using
+###                     ROW_NUMBER().
+```
 Select order_id, 
 row_number() over(partition by customer_id
 	order by order_date desc)
 	from sales 
 	limit 5 
+```
 
-'''3.Assign row numbers to each product within its category based on
-total sales amount.''' 
+### 3.Assign row numbers to each product within its category based on total sales amount.
 
 Select 
 	p.product_name, sum(s.sales) as total_sales,
