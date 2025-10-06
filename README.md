@@ -1,14 +1,16 @@
 # SQL-WINDOWS-FUNCTION-TASK-
 I've solved 20 windows function problem 
 
---WINDOWS FUNCTION
---Row Number - total 21 task
-''' 1. Assign a unique row number to each sale in the Sales
-table ordered by OrderDate.'''
+## #WINDOWS FUNCTION
+### Row Number - total 21 task
 
+#### 1. Assign a unique row number to each sale in the Sales
+table ordered by OrderDate.
+```SQL
 select sales,
 	row_number() over (order by order_date )
 from sales 
+```
 
 '''2.Display the top 5 most recent orders for each customer using
 ROW_NUMBER().'''
