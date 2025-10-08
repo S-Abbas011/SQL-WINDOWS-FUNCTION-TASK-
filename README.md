@@ -14,7 +14,7 @@ from sales
 ### 2.Display the top 5 most recent orders for each customer using
 ###                     ROW_NUMBER().
 ```SQL
-Select order_id, 
+Select order_id, customer_id
 row_number() over(partition by customer_id
 	order by order_date desc)
 	from sales 
@@ -26,7 +26,7 @@ row_number() over(partition by customer_id
 Select 
 	p.product_name, sum(s.sales) as total_sales,
 	row_number() over(partition by p.category
-	order by p.product_name)
+	order by sum(s.sales) desc)
 from product as p
 join sales as s 
 on p.product_id = s.product_id 
@@ -45,8 +45,8 @@ group by region
 
 #### 5.List the first order made by each customer (using ROW_NUMBER() inside a subquery).'''
 ```SQL
-Select order_id , customer_id
-from (select order_id,customer_id,
+Select order_id , customer_id , order_date
+from (select order_id,customer_id, order_date,
 row_number() over(partition by customer_id
 order by order_id) as rn
 from sales)
@@ -70,7 +70,7 @@ where rn between 51 and 100
 ```SQL
 select p.product_name, p.category, 
 sum(s.quantity) as total_quantity,
-rank() over(partition by p.category order by sum(s.quantity))
+rank() over(partition by p.category order by sum(s.quantity) desc)
 from product as p 
 join sales as s 
 on p.product_id = s.product_id
@@ -81,7 +81,7 @@ group by p.product_name, p.category
 
 ```SQL
 Select c.customer_name, c.region, sum(s.sales) as total_sales,
-rank() over(partition by c.region order by sum(s.sales))
+rank() over(partition by c.region order by sum(s.sales)desc)
 from customer as c 
 join sales as s
 on c.customer_id = s.customer_id
